@@ -16,11 +16,6 @@ public:
         arr = new T[size];
     }
 
-    ~Stack()
-    {
-        delete[] arr;
-    }
-
     void push(T elem)
     {
         if (current == size)
