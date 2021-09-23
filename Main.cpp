@@ -25,7 +25,11 @@ public:
     {
         if (current == size)
         {
-            std::cout << "Stack is full" << std::endl;
+            delete[]arr;
+            size++;
+            arr = new T[size];
+            arr[current] = elem;
+            current++;
         }
         else
         {
@@ -64,7 +68,8 @@ int main()
     stack.push(67);
     stack.push(67);
     stack.push(67);
-    stack.push(67);
+    stack.push(55);
+    std::cout << stack.pop() << std::endl;
 
 
     return 0;
