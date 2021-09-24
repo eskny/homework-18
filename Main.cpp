@@ -20,12 +20,21 @@ public:
     {
         if (current == size)
         {
-            delete[]arr;
+            T* tmp = new T[size + 1];
             size++;
-            arr = new T[size];
+                     
+            for (int i = 0; i < size-1 ; i++)
+            {
+                tmp[i] = arr[i];
+            }
+
+            delete[]arr;
+            arr = tmp;
             arr[current] = elem;
             current++;
+            
         }
+
         else
         {
             arr[current] = elem;
@@ -52,20 +61,21 @@ int main()
 {
     Stack<int> stack(5);
     stack.push(1);
-    std::cout << stack.pop() << std::endl;
-    stack.push(23);
+    stack.push(2);
     stack.push(3);
-    stack.push(32);
+    stack.push(4);
+    stack.push(5);
+    stack.push(6);
     std::cout << stack.pop() << std::endl;
-    stack.push(67);
     std::cout << stack.pop() << std::endl;
-    stack.push(67);
-    stack.push(67);
-    stack.push(67);
-    stack.push(67);
-    stack.push(55);
     std::cout << stack.pop() << std::endl;
-
-
+    stack.push(7);
+    stack.push(8);
+    stack.push(9);
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+  
     return 0;
 }
