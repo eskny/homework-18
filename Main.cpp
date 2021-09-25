@@ -16,12 +16,17 @@ public:
         arr = new T[size];
     }
 
+    ~Stack()
+    {
+        delete[] arr;
+    }
+
     void push(T elem)
     {
         if (current == size)
         {
-            T* tmp = new T[size + 1];
             size++;
+            T* tmp = new T[size];
                      
             for (int i = 0; i < size-1 ; i++)
             {
